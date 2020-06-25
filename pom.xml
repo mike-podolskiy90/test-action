@@ -8,5 +8,34 @@
   <artifactId>test-action</artifactId>
   <version>1.0-SNAPSHOT</version>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>1.31.3</version>
+        <executions>
+          <execution>
+            <id>spotless-check</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <java>
+            <licenseHeader>
+              <file>gbif-license-header</file>
+            </licenseHeader>
+            <removeUnusedImports />
+            <importOrder>
+              <file>gbif.importorder</file>
+            </importOrder>
+          </java>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
