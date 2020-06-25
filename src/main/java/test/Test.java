@@ -1,6 +1,5 @@
 package test;
 
-
 /**
  * Test google format and github actions
  */
