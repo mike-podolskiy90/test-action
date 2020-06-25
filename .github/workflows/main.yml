@@ -31,6 +31,6 @@ jobs:
       - name: Google Java Format
         uses: axel-op/googlejavaformat-action@v3.1.0
         with:
-          args: --skip-javadoc-formatting
+          args: --replace --skip-javadoc-formatting
           version: 1.8
 
