@@ -9,5 +9,6 @@ public class Test {
     System.out.println("Hello world");
     System.out.println("again");
     System.out.println("and again");
+    System.out.println("just stuff");
   }
 }
