@@ -31,6 +31,7 @@ public class Test {
     System.out.println("again");
     System.out.println("and again");
     System.out.println("just stuff");
-    System.out.println("That's a very very very very very very very very very very long line, almost 120 characters");
+    System.out.println(
+        "That's a very very very very very very very very very very long line, almost 120 characters");
   }
 }
