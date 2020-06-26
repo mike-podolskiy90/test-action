@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
+name: Format
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -10,18 +8,14 @@ on:
   pull_request:
     branches: [ master ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  formatting:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      # Run spotless
       - run: mvn spotless:apply
 
       # Setup java 11
@@ -29,9 +23,8 @@ jobs:
         with:
           java-version: '11' # The JDK version to make available on the path.
 
-      # Setup Google Java format
-      - name: Google Java Format
-        uses: axel-op/googlejavaformat-action@v3.1.0
+      # Google Java Format
+      - uses: axel-op/googlejavaformat-action@v3.1.0
         with:
           args: --replace --skip-javadoc-formatting --skip-sorting-imports --skip-reflowing-long-strings
           version: 1.8
