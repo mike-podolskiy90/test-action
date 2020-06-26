@@ -13,17 +13,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout
       - uses: actions/checkout@v2
 
       # Run spotless
+      - name: Spotless
       - run: mvn spotless:apply
 
       # Setup java 11
+      - name: Java 11 setup
       - uses: actions/setup-java@v1
         with:
           java-version: '11' # The JDK version to make available on the path.
 
       # Google Java Format
+      - name: Google Java Format
       - uses: axel-op/googlejavaformat-action@v3.1.0
         with:
           args: --replace --skip-javadoc-formatting --skip-sorting-imports --skip-reflowing-long-strings
